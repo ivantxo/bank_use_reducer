@@ -1,4 +1,5 @@
 import "./styles.css";
+import { useReducer } from "react";
 
 /*
 INSTRUCTIONS / CONSIDERATIONS:
@@ -34,7 +35,50 @@ const initialState = {
   isActive: false,
 };
 
+function reducer(state, action) {
+  if (action.type !== "openAccount" && !state.isActive) return null;
+
+  switch (action.type) {
+    case "openAccount":
+      return {
+        ...state,
+      };
+
+    case "deposit":
+      return {
+        ...state,
+      };
+
+    case "withdraw":
+      return {
+        ...state,
+      };
+
+    case "requestLoan":
+      return {
+        ...state,
+      };
+
+    case "payLoan":
+      return {
+        ...state,
+      };
+
+    case "closeAccount":
+      return {
+        ...state,
+      };
+
+    default:
+      throw new Error("Unkown option");
+  }
+}
+
 export default function App() {
+  const [{ balance, loan, isActive }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   return (
     <div className="App">
       <h1>useReducer Bank Account</h1>
