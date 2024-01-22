@@ -90,7 +90,7 @@ export default function App() {
       <p>
         <button
           onClick={() => dispatch({ type: "openAccount" })}
-          disabled={false}
+          disabled={isActive}
         >
           Open account
         </button>
